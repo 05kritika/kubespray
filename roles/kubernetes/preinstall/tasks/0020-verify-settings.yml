@@ -63,19 +63,19 @@
     - not ignore_assert_errors
     - inventory_hostname in groups['etcd']
 
-- name: Stop if memory is too small for masters
-  assert:
-    that: ansible_memtotal_mb >= minimal_master_memory_mb
-  when:
-    - not ignore_assert_errors
-    - inventory_hostname in groups['kube-master']
+#- name: Stop if memory is too small for masters
+#  assert:
+#    that: ansible_memtotal_mb >= minimal_master_memory_mb
+#  when:
+#    - not ignore_assert_errors
+#    - inventory_hostname in groups['kube-master']
 
-- name: Stop if memory is too small for nodes
-  assert:
-    that: ansible_memtotal_mb >= minimal_node_memory_mb
-  when:
-    - not ignore_assert_errors
-    - inventory_hostname in groups['kube-node']
+#- name: Stop if memory is too small for nodes
+#  assert:
+#    that: ansible_memtotal_mb >= minimal_node_memory_mb
+#  when:
+#    - not ignore_assert_errors
+#    - inventory_hostname in groups['kube-node']
 
 # This assertion will fail on the safe side: One can indeed schedule more pods
 # on a node than the CIDR-range has space for when additional pods use the host
