@@ -35,7 +35,7 @@ pipeline {
       steps {
 	    sh '''
 	        cd contrib/terraform/aws/
-	        terraform apply -auto-approve -var-file=credentials.tfvars    
+	        terraform destroy -auto-approve -var-file=credentials.tfvars    
 	       '''
 	  // terraform destroy -auto-approve -var-file=credentials.tfvars	
           
@@ -43,12 +43,12 @@ pipeline {
          }
     }
 	  
-    stage ("Waiting_prior_starting_ansible_provisioning") {
-      steps {
-         echo 'Waiting 2 minutes for deployment to complete prior starting smoke testing'
-         sleep 120 // seconds
-      }
-    }	    
+//    stage ("Waiting_prior_starting_ansible_provisioning") {
+//      steps {
+//         echo 'Waiting 2 minutes for deployment to complete prior starting smoke testing'
+//         sleep 120 // seconds
+//      }
+//    }	    
 	
     stage('Ansible Kubernetes Cluster Provisioning') {
       steps {
