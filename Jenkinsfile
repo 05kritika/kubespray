@@ -50,12 +50,12 @@ pipeline {
 //      }
 //    }	    
 	
-    stage('Ansible Kubernetes Cluster Provisioning') {
-      steps {
-        sh '''
-             ansible-playbook -i ./inventory/hosts ./cluster.yml -e ansible_user=ubuntu -b --become-user=root --flush-cache -e cloud_provider=aws -e ansible_ssh_private_key_file=/var/lib/jenkins/workspace/kubespray-pipeline/kritika-key.pem
-	   '''
-      }
-    }
+//    stage('Ansible Kubernetes Cluster Provisioning') {
+//      steps {
+//        sh '''
+//             ansible-playbook -i ./inventory/hosts ./cluster.yml -e ansible_user=ubuntu -b --become-user=root --flush-cache -e cloud_provider=aws -e ansible_ssh_private_key_file=/var/lib/jenkins/workspace/kubespray-pipeline/kritika-key.pem
+//	   '''
+//      }
+//    }
   }
 }
