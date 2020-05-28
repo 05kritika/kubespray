@@ -199,7 +199,7 @@ data "template_file" "inventory" {
     list_master               = "${join("\n", aws_instance.k8s-master.*.private_dns)}"
     list_node                 = "${join("\n", aws_instance.k8s-worker.*.private_dns)}"
     list_etcd                 = "${join("\n", aws_instance.k8s-etcd.*.private_dns)}"
-#    elb_api_fqdn              = "apiserver_loadbalancer_domain_name=\"${module.aws-elb.aws_elb_api_fqdn}\""
+
   }
 }
 
