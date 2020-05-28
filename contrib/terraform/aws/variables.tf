@@ -1,13 +1,17 @@
-variable "AWS_ACCESS_KEY_ID" {
-  description = "AWS Access Key"
-}
+#variable "AWS_ACCESS_KEY_ID" {
+#  description = "AWS Access Key"
+#}
 
-variable "AWS_SECRET_ACCESS_KEY" {
-  description = "AWS Secret Key"
-}
+#variable "AWS_SECRET_ACCESS_KEY" {
+#  description = "AWS Secret Key"
+#}
 
 variable "AWS_SSH_KEY_NAME" {
   description = "Name of the SSH keypair to use in AWS."
+}
+
+variable "AWS_SSH_KEY_PATH" {
+  default = "/var/lib/jenkins/workspace/kubespray-kubernetes/kritika.pem"
 }
 
 variable "AWS_DEFAULT_REGION" {
@@ -25,7 +29,8 @@ data "aws_ami" "distro" {
 
   filter {
     name   = "name"
-    values = ["CoreOS-stable-*"]
+#    values = ["CoreOS-stable-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-*"]
   }
 
   filter {
@@ -33,7 +38,8 @@ data "aws_ami" "distro" {
     values = ["hvm"]
   }
 
-  owners = ["595879546273"] #CoreOS
+  owners = ["099720109477"] #ubuntu
+  #owners = ["595879546273"] #CoreOS
 }
 
 //AWS VPC Variables
@@ -91,13 +97,13 @@ variable "aws_kube_worker_size" {
 * AWS ELB Settings
 *
 */
-variable "aws_elb_api_port" {
-  description = "Port for AWS ELB"
-}
+#variable "aws_elb_api_port" {
+#  description = "Port for AWS ELB"
+#}
 
-variable "k8s_secure_api_port" {
-  description = "Secure Port of K8S API Server"
-}
+#variable "k8s_secure_api_port" {
+#  description = "Secure Port of K8S API Server"
+#}
 
 variable "default_tags" {
   description = "Default tags for all resources"
