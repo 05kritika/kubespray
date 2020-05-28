@@ -24,5 +24,3 @@ kube-node
 kube-master
 
 
-[k8s-cluster:vars]
-${elb_api_fqdn}
