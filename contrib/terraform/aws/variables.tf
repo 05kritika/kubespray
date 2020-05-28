@@ -11,7 +11,7 @@ variable "AWS_SSH_KEY_NAME" {
 }
 
 variable "AWS_SSH_KEY_PATH" {
-  default = "/var/lib/jenkins/workspace/kubespray-kubernetes/kritika.pem"
+  default = "/var/lib/jenkins/workspace/kubespray-cluster/kritika-key.pem"
 }
 
 variable "AWS_DEFAULT_REGION" {
